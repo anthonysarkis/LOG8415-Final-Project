@@ -47,6 +47,7 @@ resource "aws_instance" "stand-alone-instance" {
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.security_gp.id]
   availability_zone      = "us-east-1d"
+  user_data              = file("userdata.sh")
   tags = {
     Name = "Standalone"
   }

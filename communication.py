@@ -57,30 +57,3 @@ for client in all_clients:
         print()
 
     ssh_client.close()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# if __name__ == '__main__':
-
-#     implementation = "Direct hit"
-
-#     if implementation == "Direct hit":
-#         print("forward incoming requests to MySQL master node")
-#     elif implementation == "Random":
-#         print("randomly choose a slave node on MySQL cluster and forward the request to it")
-#     elif implementation == "Customized":
-#         print("measure ping time and forward the message to one with less response time")

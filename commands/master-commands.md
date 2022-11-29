@@ -6,8 +6,9 @@ sudo mkdir /var/lib/mysql-cluster
 sudo nano /var/lib/mysql-cluster/config.ini
 # Paste config.ini file
 
-sudo apt-update
+sudo apt-get update
 sudo apt install libncurses5
+sudo apt --fix-broken install
 sudo ndb_mgmd -f /var/lib/mysql-cluster/config.ini
 sudo pkill -f ndb_mgmd
 
@@ -19,9 +20,9 @@ sudo systemctl enable ndb_mgmd
 sudo systemctl start ndb_mgmd
 sudo systemctl status ndb_mgmd
 
-sudo ufw allow from ip-172-31-38-95.ec2.internal
-sudo ufw allow from ip-172-31-32-143.ec2.internal
-sudo ufw allow from ip-172-31-34-143.ec2.internal
+sudo ufw allow from ip-172-31-32-73.ec2.internal
+sudo ufw allow from ip-172-31-36-154.ec2.internal
+sudo ufw allow from ip-172-31-40-232.ec2.internal
 
 # After setting up and configuring Slave nodes
 

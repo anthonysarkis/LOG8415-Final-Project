@@ -12,9 +12,9 @@ terraform {
 
 provider "aws" {
   region     = "us-east-1"
-  access_key = "ASIASDKBNIIVGHSVYIVG"
-  secret_key = "B9+O/Byhjjs71qhP7wBLX+Uk1voppHb/dEV0UqUw"
-  token      = "FwoGZXIvYXdzEEcaDIGrpUSsquEZCPlEJSLBAU8ygm09+7CIhvqVnHxp+AXBWdneyJ1U13Om5J1iLttkuinAsyF4wKlmJFv70IVnDpdbvDiYvSBkZ833CD5cBPElDE/wnUICjIxxW2DRQV3QC6UEqDRwYJOnERWcWH0fggOanTC74a8whzs0IfQ1ng4aXkApo4YlTdckCgk5t9+lRWPv90ZxjWxX/vzvW0fR6Gi16CSSBNH8PcFysAlJMcio5UcVDEXbCMrHUuPqLnqTMorOFJtLjYmrarl9veldpLIoitKUnAYyLbKBRJDkJBZl1H1vrozoBpiUTECgEOwHKrjR4ZISjbUTFhXLI7gd4IenoSYSEg=="
+  access_key = "ASIASDKBNIIVGMNWX45Z"
+  secret_key = "n9ZyMlEvy/iNY7Xuqih9LWRynYdZUngN3oakV42r"
+  token      = "FwoGZXIvYXdzEF0aDG2LPR8g9w8RfMclFCLBAVCgmFDl61Nos4IvxTqJWNPFBPrJDams6lxOX6BitSP8j1Nn3ADe4hcqh5ARv+sXQc6IqWTiYLeW710tZqN1l0S5z1apx8B9jg43X2x2PE2XsRVS3z4Cilc+b8owFWnSlL/miAdQkcxwDkOGbarpSZe53lQCpBJg0yxs0fGzilMkTws0+ZPI9HmwN1Pywzn/Qx+8BkC54+E53pyoHlQCA1rdDWEfg9opIR09lFK8kPwplBVXTEOxHf3J8jFodntOiEoox8iZnAYyLSwaps5I6rAaliJMQGJjRdBY7GJottkJaCPCHILYIZOnzBRTEva/U1xlNIktKA=="
 }
 
 
@@ -48,6 +48,7 @@ resource "aws_instance" "stand-alone-instance" {
   vpc_security_group_ids = [aws_security_group.security_gp.id]
   availability_zone      = "us-east-1d"
   user_data              = file("userdata.sh")
+  key_name               = "vockey"
   tags = {
     Name = "Standalone"
   }
@@ -58,6 +59,7 @@ resource "aws_instance" "cluster-master-instance" {
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.security_gp.id]
   availability_zone      = "us-east-1d"
+  key_name               = "vockey"
   tags = {
     Name = "Master"
   }
@@ -68,6 +70,7 @@ resource "aws_instance" "cluster-slave-instance-1" {
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.security_gp.id]
   availability_zone      = "us-east-1d"
+  key_name               = "vockey"
   tags = {
     Name = "Slave1"
   }
@@ -78,6 +81,7 @@ resource "aws_instance" "cluster-slave-instance-2" {
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.security_gp.id]
   availability_zone      = "us-east-1d"
+  key_name               = "vockey"
   tags = {
     Name = "Slave2"
   }
@@ -88,7 +92,19 @@ resource "aws_instance" "cluster-slave-instance-3" {
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.security_gp.id]
   availability_zone      = "us-east-1d"
+  key_name               = "vockey"
   tags = {
     Name = "Slave3"
+  }
+}
+
+resource "aws_instance" "proxy-instance" {
+  ami                    = "ami-0149b2da6ceec4bb0"
+  instance_type          = "t2.large"
+  vpc_security_group_ids = [aws_security_group.security_gp.id]
+  availability_zone      = "us-east-1d"
+  key_name               = "vockey"
+  tags = {
+    Name = "Proxy"
   }
 }

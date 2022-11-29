@@ -31,32 +31,32 @@ for each_instance in target_instances['Reservations']:
 
         ec2_instances[name] = public_dns_name
 
-print(ec2_instances)
-
 commands = [
-    "echo hi",
-    "whoami",
     "hostname",
     "ls"
 ]
 
 ssh_username = "ubuntu"
 ssh_key_file = StringIO(open('vockey.pem', 'r').read())
-
-host = ec2_instances['Master']
 k=paramiko.RSAKey.from_private_key(ssh_key_file)
 
-client = paramiko.client.SSHClient()
-client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-client.connect(hostname=host, username=ssh_username, pkey=k, allow_agent=True, look_for_keys=False)
+all_clients = dict()
+for instance in ec2_instances:
+    client = paramiko.client.SSHClient()
+    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    client.connect(hostname=ec2_instances[instance], username=ssh_username, pkey=k, allow_agent=False, look_for_keys=False)
+    all_clients[instance] = client
 
-for command in commands:
-    print("running command: {}".format(command))
-    stdin, stdout, stderr = client.exec_command(command)
-    print(stdout.read())
-    print(stderr.read())
+for client in all_clients:
+    ssh_client = all_clients[client]
+    for command in commands:
+        print("{} instance: running command '{}'".format(client, command))
+        stdin, stdout, stderr = ssh_client.exec_command(command)
+        print(stdout.read())
+        print(stderr.read())
+        print()
 
-client.close()
+    ssh_client.close()
 
 
 

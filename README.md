@@ -33,7 +33,7 @@ First run main.tf script to deploy EC2 instances.
 2. ./install_sakila_commands.sh
 3. mysql -u root -p
 
-### To test Sakile
+### To test Sakila
 1. SOURCE /tmp/sakila-db/sakila-schema.sql;
 2. SOURCE /tmp/sakila-db/sakila-data.sql;
 3. USE sakila;

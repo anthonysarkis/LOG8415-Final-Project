@@ -39,8 +39,8 @@ First run main.tf script to deploy EC2 instances.
 ### On the Standalone instance:
 1. git clone https://github.com/anthonysarkis/LOG8415-Final-Project.git
 2. cd LOG8415-Final-Project/commands/
-3. chmod 777 standalone_commands.sh
-4. ./standalone_commands.sh
+3. chmod 777 install_sakila_commands.sh
+4. ./install_sakila_commands.sh
 
 ## Proxy
 

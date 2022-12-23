@@ -40,7 +40,7 @@ def get_fastest_slave(slaves):
             fastest_slave = slave
             min = ping_time
     
-    print('Lowest Ping : Slave', slaves_public_ip.index(slave) + 1, "with", min, '\n')
+    print('Lowest Ping : Slave', slaves_public_ip.index(fastest_slave) + 1, "with", min, '\n')
     return fastest_slave
 
 
@@ -56,8 +56,8 @@ def random_hit(slaves, master, query):
 
 
 def customized_hit(slaves, master, query):
-    slave = get_fastest_slave(slaves)
-    print('Request sent to Slave', slaves_public_ip.index(slave) + 1, '-', slave, '\n')
+    fastest_slave = get_fastest_slave(slaves)
+    print('Request sent to Slave', slaves_public_ip.index(fastest_slave) + 1, '-', fastest_slave, '\n')
     execute(slave, master, query)
 
 

@@ -58,7 +58,7 @@ def random_hit(slaves, master, query):
 def customized_hit(slaves, master, query):
     fastest_slave = get_fastest_slave(slaves)
     print('Request sent to Slave', slaves_public_ip.index(fastest_slave) + 1, '-', fastest_slave, '\n')
-    execute(slave, master, query)
+    execute(fastest_slave, master, query)
 
 
 if __name__ == "__main__":

@@ -30,7 +30,6 @@ def customized_hit():
     print("measure ping time and forward the message to one with less response time")
 
     response_times = [ping_host(server) for server in all_urls]
-
     fastest_server = min(range(len(response_times)), key=response_times.__getitem__)
 
     requests.post(all_urls[fastest_server], headers=headers, json=query)

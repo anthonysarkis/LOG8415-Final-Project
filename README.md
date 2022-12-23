@@ -31,6 +31,13 @@ First run main.tf script to deploy EC2 instances.
 ### To install Sakila
 1. chmod 777 install_sakila_commands.sh
 2. ./install_sakila_commands.sh
+3. mysql -u root -p
+
+### To test Sakile
+1. SOURCE /tmp/sakila-db/sakila-schema.sql;
+2. SOURCE /tmp/sakila-db/sakila-data.sql;
+3. USE sakila;
+4. SHOW FULL TABLES;
 
 ### To run sysbench
 1. chmod 777 sysbench.sh
@@ -46,4 +53,11 @@ First run main.tf script to deploy EC2 instances.
 
 ## Proxy
 
-Proxy
+### On the Master instance
+1. CREATE USER 'usrname'@'proxy_public_ip' IDENTIFIED BY 'password';
+2. GRANT ALL PRIVILEGES ON * . * TO 'usrname'@'proxy_public_ip';
+
+### On the Proxy instance
+1. git clone https://github.com/anthonysarkis/LOG8415-Final-Project.git
+2. cd LOG8415-Final-Project/proxy/
+3. python3 app.py direct "SELECT COUNT(*) FROM film;"

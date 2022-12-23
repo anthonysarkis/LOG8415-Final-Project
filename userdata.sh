@@ -48,4 +48,3 @@ apt-get update && apt install python3.8 python3-pip dos2unix -y
 pip3 install sshtunnel
 pip3 install PyMySQL
 pip3 install pythonping
-pip3 install optparse

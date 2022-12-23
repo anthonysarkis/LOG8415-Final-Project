@@ -41,6 +41,8 @@ First run main.tf script to deploy EC2 instances.
 2. cd LOG8415-Final-Project/commands/
 3. chmod 777 install_sakila_commands.sh
 4. ./install_sakila_commands.sh
+5. chmod 777 standalone_sysbench.sh
+6. ./standalone_sysbench.sh
 
 ## Proxy
 

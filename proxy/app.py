@@ -6,8 +6,8 @@ from pythonping import ping
 from sshtunnel import SSHTunnelForwarder
 
 
-master_public_ip = "52.91.88.15"
-slaves_public_ip = ["3.81.35.241", "34.227.73.188", "35.171.86.118"]
+master_public_ip = "107.22.75.54"
+slaves_public_ip = ["3.91.51.142", "54.210.78.103", "34.229.196.140"]
 
 
 def execute(slave_ip, master_ip, query):

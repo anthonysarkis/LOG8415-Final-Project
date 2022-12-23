@@ -5,4 +5,4 @@ bind-address=0.0.0.0
 
 [mysql_cluster]
 # Options for NDB Cluster processes:
-ndb-connectstring=ip-172-31-44-66.ec2.internal  # location of management server
+ndb-connectstring=ip-172-31-44-78.ec2.internal  # location of management server

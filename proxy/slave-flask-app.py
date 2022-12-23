@@ -4,7 +4,7 @@ from flask import request
 
 # Connect to the database
 connection = pymysql.connect(
-    host='172.31.46.71',
+    host='172.31.45.28',
     user='root',
     password='root',
     database='sakila',

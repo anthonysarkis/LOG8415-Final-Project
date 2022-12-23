@@ -35,7 +35,6 @@ def customized_hit():
 
     requests.post(all_urls[fastest_server], headers=headers, json=query)
 
-
 if __name__ == '__main__':
     if implementation == "Direct hit":
         direct_hit()

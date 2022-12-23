@@ -20,9 +20,9 @@ sudo systemctl enable ndb_mgmd
 sudo systemctl start ndb_mgmd
 sudo systemctl status ndb_mgmd
 
-sudo ufw allow from ip-172-31-32-73.ec2.internal
-sudo ufw allow from ip-172-31-36-154.ec2.internal
-sudo ufw allow from ip-172-31-40-232.ec2.internal
+sudo ufw allow from ip-172-31-46-214.ec2.internal
+sudo ufw allow from ip-172-31-46-80.ec2.internal
+sudo ufw allow from ip-172-31-32-97.ec2.internal
 
 # After setting up and configuring Slave nodes
 
@@ -46,7 +46,7 @@ sudo nano /etc/mysql/my.cnf
 sudo systemctl restart mysql
 sudo systemctl enable mysql
 
-mysql -u root -p
+mysql -u root -proot
 SHOW ENGINE NDB STATUS \G
 exit
 
@@ -57,7 +57,7 @@ wget https://downloads.mysql.com/docs/sakila-db.tar.gz
 tar -xvzf sakila-db.tar.gz
 cp -r sakila-db /tmp/
 
-mysql -u root -p
+mysql -u root -proot
 SOURCE /tmp/sakila-db/sakila-schema.sql;
 SOURCE /tmp/sakila-db/sakila-data.sql;
 USE sakila;

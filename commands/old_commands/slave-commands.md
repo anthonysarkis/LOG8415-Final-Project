@@ -13,16 +13,16 @@ sudo mkdir -p /usr/local/mysql/data
 sudo ndbd
 
 # For Slave1
-sudo ufw allow from ip-172-31-32-73.ec2.internal
-sudo ufw allow from ip-172-31-33-55.ec2.internal
+sudo ufw allow from ip-172-31-46-214.ec2.internal
+sudo ufw allow from ip-172-31-35-231.ec2.internal
 
 # For Slave2
-sudo ufw allow from ip-172-31-36-154.ec2.internal
-sudo ufw allow from ip-172-31-33-55.ec2.internal
+sudo ufw allow from ip-172-31-46-80.ec2.internal
+sudo ufw allow from ip-172-31-35-231.ec2.internal
 
 # For Slave3
-sudo ufw allow from ip-172-31-40-232.ec2.internal
-sudo ufw allow from ip-172-31-33-55.ec2.internal
+sudo ufw allow from ip-172-31-32-97.ec2.internal
+sudo ufw allow from ip-172-31-35-231.ec2.internal
 
 sudo pkill -f ndbd
 
